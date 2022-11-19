@@ -1,0 +1,202 @@
+{% load static %}
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="overflow:hidden; background:#333">
+      <!-- Brand Logo -->
+      <a href="{% url 'admin_home' %}" class="brand-link" style="background:#fff">
+        <img src="{% static 'dist/img/na.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
+        <span class="brand-text font-weight-light"style="color:black;">나사렛대학교</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" style="font-size:medium20px;">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+
+            <li class="nav-item">
+              {% url 'admin_home' as admin_home %}
+              <a href="{{ admin_home }}" class="nav-link {% if request.path == admin_home %} active {% endif %}">
+                <i class="nav-icon fas fa-tachometer-alt"></i><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAVxJREFUSEvt1t1RwzAQBODdCoAKoARKgAqACiAVQAdAB6QCQgWkAyiBEpIOQgXHHCMbWZZs3RlPXqJHT6RPp5+NiD017smFGxaROwBC8s0zeRcsIisAtwFckVxYcTOcoI1nxk1wgn4H9chTeTWcQS8C+AnAjFfBOZTkl8Iicg7AjI/CQ2izwR58EK5BvXgRtqAePAt7UCveg6egFrwDZ8LhmeSTNZXCadd+j1HfTsi0cMje1wT5T1iHXpDUuP37kxCRawDvM8M3JNcdOAqDYwAfYQKdikXkAcBVYenXJJfRPsdLfQlg14ROD446SQqLyAuA+5H9XpLUyWmitTDJ3iEuXacc3HzbAtgkEzgDcBqqOpkL7h24XHVzVHyAswfpsNTpNSxdp130nPFEddxnS1KvW6eVYH0zp7ntnUCbz/EAQw8BfUtpfk9pGqO/b7OqiqdItX1HH3u1A1l/9wODmCUuf7HoQQAAAABJRU5ErkJggg=="/>
+                <p>
+                  홈페이지
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'hod_check' as hod_check %}
+              <a href="{{ hod_check }}" class="nav-link {% if request.path == hod_check %} active {% endif %}">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  확인
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'manage_staff' as manage_staff %}
+              {% url 'edit_staff' staff_id=id as edit_staff %}
+              <a href="{{ manage_staff }}" class="nav-link {% if request.path == manage_staff %} active {% endif %} {% if request.path == edit_staff %} active {% endif %}">
+                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                <p>
+                  직원 관리
+                </p>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              {% url 'add_staff' as add_staff %}
+              <a href="{{ add_staff }}" class="nav-link {% if request.path == add_staff %} active {% endif %}">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAS1JREFUSEvtlutRAkEQhLsjwAyQCDQDIQNDkEwwEzKwjEDIgBAgAjWCpoba02G5pZatUfhx+/Me/c3Mzou40uGVuCiCJT0DeAgwbEPyPdc5AUt6BPAG4D4A2kksSc69Xh94E+RpbveE5LZ7eASWdAfgM9BTLzUjuSqBpwA+bhm8A7BMBr4AGFcYG+LxmqRFB5IsfE8DuCcCzaGeObEvklZ2Fmqre6uG7pSSsw1Msqq9SlLhvtvAAA7JlM535vHIvfup1cyAZrDXGbL63+rYmr3vXDWTLOSOKxrVyScD+Dckkm5iLPrR13Kn+T+2/hQ3EO/xUTJEkL3GudVnQfI1Gti7+qRp81fLXrmcEtiagTX6mnXmkoCcB3dKaaG3WRt1yskVRajRqRruNUKXfrMHf5i2HyTw6+QAAAAASUVORK5CYII="/>
+                <p>
+                  직원추가
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'manage_student' as manage_student %}
+              {% url 'edit_student' student_id=id as edit_student %}
+              <a href="{{ manage_student }}" class="nav-link {% if request.path == manage_student %} active {% endif %} {% if request.path == edit_student %} active {% endif %}">
+                <i class="nav-icon fas fa-user-graduate"></i>
+                <p>
+                  학생 관리
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'add_student' as add_student %}
+              <a href="{{ add_student }}" class="nav-link {% if request.path == add_student %} active {% endif %}">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAS1JREFUSEvtlutRAkEQhLsjwAyQCDQDIQNDkEwwEzKwjEDIgBAgAjWCpoba02G5pZatUfhx+/Me/c3Mzou40uGVuCiCJT0DeAgwbEPyPdc5AUt6BPAG4D4A2kksSc69Xh94E+RpbveE5LZ7eASWdAfgM9BTLzUjuSqBpwA+bhm8A7BMBr4AGFcYG+LxmqRFB5IsfE8DuCcCzaGeObEvklZ2Fmqre6uG7pSSsw1Msqq9SlLhvtvAAA7JlM535vHIvfup1cyAZrDXGbL63+rYmr3vXDWTLOSOKxrVyScD+Dckkm5iLPrR13Kn+T+2/hQ3EO/xUTJEkL3GudVnQfI1Gti7+qRp81fLXrmcEtiagTX6mnXmkoCcB3dKaaG3WRt1yskVRajRqRruNUKXfrMHf5i2HyTw6+QAAAAASUVORK5CYII="/>
+                <p>
+                  학생 추가
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'manage_course' as manage_course %}
+              {% url 'edit_course' course_id=id as edit_course %}
+              <a href="{{ manage_course }}" class="nav-link {% if request.path == manage_course %} active {% endif %} {% if request.path == edit_course %} active {% endif %}">
+                <i class="nav-icon fas fa-chalkboard"></i>
+                <p>
+                  학과 관리
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+            {% url 'add_course' as add_course %}
+              <a href="{{ add_course }}" class="nav-link {% if request.path == add_course %} active {% endif %}">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAS1JREFUSEvtlutRAkEQhLsjwAyQCDQDIQNDkEwwEzKwjEDIgBAgAjWCpoba02G5pZatUfhx+/Me/c3Mzou40uGVuCiCJT0DeAgwbEPyPdc5AUt6BPAG4D4A2kksSc69Xh94E+RpbveE5LZ7eASWdAfgM9BTLzUjuSqBpwA+bhm8A7BMBr4AGFcYG+LxmqRFB5IsfE8DuCcCzaGeObEvklZ2Fmqre6uG7pSSsw1Msqq9SlLhvtvAAA7JlM535vHIvfup1cyAZrDXGbL63+rYmr3vXDWTLOSOKxrVyScD+Dckkm5iLPrR13Kn+T+2/hQ3EO/xUTJEkL3GudVnQfI1Gti7+qRp81fLXrmcEtiagTX6mnXmkoCcB3dKaaG3WRt1yskVRajRqRruNUKXfrMHf5i2HyTw6+QAAAAASUVORK5CYII="/>
+                <p>
+                  학과 추가
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'manage_subject' as manage_subject %}
+              {% url 'edit_subject' subject_id=id as edit_subject %}
+              <a href="{{ manage_subject }}" class="nav-link {% if request.path == manage_subject %} active {% endif %} {% if request.path == edit_subject %} active {% endif %}">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  과목 관리
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'add_subject' as add_subject %}
+              <a href="{{ add_subject }}" class="nav-link {% if request.path == add_subject %} active {% endif %}">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAS1JREFUSEvtlutRAkEQhLsjwAyQCDQDIQNDkEwwEzKwjEDIgBAgAjWCpoba02G5pZatUfhx+/Me/c3Mzou40uGVuCiCJT0DeAgwbEPyPdc5AUt6BPAG4D4A2kksSc69Xh94E+RpbveE5LZ7eASWdAfgM9BTLzUjuSqBpwA+bhm8A7BMBr4AGFcYG+LxmqRFB5IsfE8DuCcCzaGeObEvklZ2Fmqre6uG7pSSsw1Msqq9SlLhvtvAAA7JlM535vHIvfup1cyAZrDXGbL63+rYmr3vXDWTLOSOKxrVyScD+Dckkm5iLPrR13Kn+T+2/hQ3EO/xUTJEkL3GudVnQfI1Gti7+qRp81fLXrmcEtiagTX6mnXmkoCcB3dKaaG3WRt1yskVRajRqRruNUKXfrMHf5i2HyTw6+QAAAAASUVORK5CYII="/>
+                <p>
+                  과목 추가
+                </p>
+              </a>
+            </li>
+
+
+            <li class="nav-item">
+              {% url 'manage_session' as manage_session %}
+              {% url 'edit_session' session_id=id as edit_session %}
+              <a href="{{ manage_session }}" class="nav-link {% if request.path == manage_session %} active {% endif %} {% if request.path == edit_session %} active {% endif %}">
+                <i class="nav-icon fas fa-graduation-cap"></i>
+                <p>
+                  세션 관리
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'add_session' as add_session %}
+              <a href="{{ add_session }}" class="nav-link {% if request.path == add_session %} active {% endif %}">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAS1JREFUSEvtlutRAkEQhLsjwAyQCDQDIQNDkEwwEzKwjEDIgBAgAjWCpoba02G5pZatUfhx+/Me/c3Mzou40uGVuCiCJT0DeAgwbEPyPdc5AUt6BPAG4D4A2kksSc69Xh94E+RpbveE5LZ7eASWdAfgM9BTLzUjuSqBpwA+bhm8A7BMBr4AGFcYG+LxmqRFB5IsfE8DuCcCzaGeObEvklZ2Fmqre6uG7pSSsw1Msqq9SlLhvtvAAA7JlM535vHIvfup1cyAZrDXGbL63+rYmr3vXDWTLOSOKxrVyScD+Dckkm5iLPrR13Kn+T+2/hQ3EO/xUTJEkL3GudVnQfI1Gti7+qRp81fLXrmcEtiagTX6mnXmkoCcB3dKaaG3WRt1yskVRajRqRruNUKXfrMHf5i2HyTw6+QAAAAASUVORK5CYII="/>
+                <p>
+                  세션 추가
+                </p>
+              </a>
+            </li>
+
+
+            <li class="nav-item">
+              {% url 'admin_view_attendance' as admin_view_attendance %}
+              <a href="{{ admin_view_attendance }}" class="nav-link {% if request.path == admin_view_attendance %} active {% endif %}">
+                <i class="nav-icon fas fa-calendar-alt"></i>
+                <p>
+                  출석 확인
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'student_feedback_message' as student_feedback_message %}
+              <a href="{{ student_feedback_message }}" class="nav-link {% if request.path == student_feedback_message %} active {% endif %}">
+                <i class="nav-icon fas fa-comments"></i>
+                <p>
+                  학생의 피드백
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'staff_feedback_message' as staff_feedback_message %}
+              <a href="{{ staff_feedback_message }}" class="nav-link {% if request.path == staff_feedback_message %} active {% endif %}">
+                <i class="nav-icon fas fa-comments"></i>
+                <p>
+                  직원의 피드백
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'student_leave_view' as student_leave_view %}
+              <a href="{{ student_leave_view }}" class="nav-link {% if request.path == student_leave_view %} active {% endif %}">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAdpJREFUSEvlls1Nw0AUhGcqIFdOhAoIEnfCHfFTAUQ0ABUAFRAqICUQJCRuhDNI0AGkA6hg0IR1tDF2vIFYkeBJlpXI3u/N23lvTSwouCAu5g6WdARgGcAdyacyYXMFS+oD2Ilg2yRvi+BzA0vaAPCYg9yQ3P2bYKuqtdSSWgCWAAxJvuXLWIu5JPUAHESwdwAvAAa+k7S5kiLZXJLaAO4rVnUSWySd0NSYBWxVmwA+AOwBcMl9939xXJI8ngs4p/ac5Fkwk/d4pQBi1QNJzZBYm2Qnfi5JsaRYbdOllGT4aYkyl9qXwVmMksl+pIINcfm6VhuUPANoRAsPAfi5q5JkOiRtzlEkgUNZR5Cg9hpAfiJl5T0E4MthhYNY6czg7IUSd/dJ2mjJkaw4AhcZygoNr2yjHymuMJTXdFLuZbfU2EhFZUhWnDOUjWSAe7monczaJ2kvFMYs4NhQ49aQZNM5AU+27O5Z7hG6/itwzlBTjSTJbXcRgKtFB8m3dgonT/ZSnKyVWJnHZatssdB2Hhqv4eUTkt3KPU44CEoXiheX5P1fm1buiT0OigszBNCLJ8+0hk0pd7K5kifD15dIZblrAYe9zsr9QNKOn4g6wYY1ynq5NnDV1vw/8Cd6Bsgflv4mBAAAAABJRU5ErkJggg=="/>
+                <p>
+                  학생 휴학
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'staff_leave_view' as staff_leave_view %}
+              <a href="{{ staff_leave_view }}" class="nav-link {% if request.path == staff_leave_view %} active {% endif %}">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAdpJREFUSEvlls1Nw0AUhGcqIFdOhAoIEnfCHfFTAUQ0ABUAFRAqICUQJCRuhDNI0AGkA6hg0IR1tDF2vIFYkeBJlpXI3u/N23lvTSwouCAu5g6WdARgGcAdyacyYXMFS+oD2Ilg2yRvi+BzA0vaAPCYg9yQ3P2bYKuqtdSSWgCWAAxJvuXLWIu5JPUAHESwdwAvAAa+k7S5kiLZXJLaAO4rVnUSWySd0NSYBWxVmwA+AOwBcMl9939xXJI8ngs4p/ac5Fkwk/d4pQBi1QNJzZBYm2Qnfi5JsaRYbdOllGT4aYkyl9qXwVmMksl+pIINcfm6VhuUPANoRAsPAfi5q5JkOiRtzlEkgUNZR5Cg9hpAfiJl5T0E4MthhYNY6czg7IUSd/dJ2mjJkaw4AhcZygoNr2yjHymuMJTXdFLuZbfU2EhFZUhWnDOUjWSAe7monczaJ2kvFMYs4NhQ49aQZNM5AU+27O5Z7hG6/itwzlBTjSTJbXcRgKtFB8m3dgonT/ZSnKyVWJnHZatssdB2Hhqv4eUTkt3KPU44CEoXiheX5P1fm1buiT0OigszBNCLJ8+0hk0pd7K5kifD15dIZblrAYe9zsr9QNKOn4g6wYY1ynq5NnDV1vw/8Cd6Bsgflv4mBAAAAABJRU5ErkJggg=="/>
+                <p>
+                  직원 휴가
+                </p>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
